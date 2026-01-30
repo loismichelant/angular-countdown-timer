@@ -1,1 +1,51 @@
 <h1>Countdown Timer</h1>
+
+<div class="form">
+  <input
+    type="text"
+    placeholder="Event name"
+    [(ngModel)]="eventName"
+  />
+
+  <input
+    type="date"
+    [(ngModel)]="eventDate"
+  />
+
+  <input
+    type="time"
+    [(ngModel)]="eventTime"
+  />
+
+  <button (click)="startCountdown()">Start</button>
+</div>
+
+@if (errorMessage) {
+  <p class="error">
+    {{ errorMessage }}
+  </p>
+}
+
+@if (countdown) {
+  <div class="timer">
+    <div class="unit">
+      <span>{{ countdown.days }}</span>
+      <small>Days</small>
+    </div>
+
+    <div class="unit">
+      <span>{{ countdown.hours }}</span>
+      <small>Hours</small>
+    </div>
+
+    <div class="unit">
+      <span>{{ countdown.minutes }}</span>
+      <small>Minutes</small>
+    </div>
+
+    <div class="unit">
+      <span>{{ countdown.seconds }}</span>
+      <small>Seconds</small>
+    </div>
+  </div>
+}
